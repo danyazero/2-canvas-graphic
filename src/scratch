@@ -1,0 +1,12 @@
+            <Line x={3} y={3} strokeWidth={3} stroke="black" points={[...convertCords(1, 1.5, scale), ...convertCords(1, 7, scale)]}/>
+            <Line x={3} y={3} strokeWidth={3} stroke="black" points={[...convertCords(0, 7, scale), ...convertCords(1, 7, scale)]}/>
+            <Line x={3} y={3} strokeWidth={3} stroke="black" points={[...convertCords(0, 0, scale), ...convertCords(0, 7, scale)]}/>
+            <Line x={3} y={3} strokeWidth={3} stroke="black" points={[...convertCords(0, 0, scale), ...convertCords(1, 0, scale)]}/>
+            <Line x={3} y={3} strokeWidth={3} stroke="black" points={[...convertCords(1, 0, scale), ...convertCords(3, 2, scale)]}/>
+            <Line x={3} y={3} strokeWidth={3} stroke="black" points={[...convertCords(3, 2, scale), ...convertCords(5, 0, scale)]}/>
+            <Line x={3} y={3} strokeWidth={3} stroke="black" points={[...convertCords(5, 0, scale), ...convertCords(6, 0, scale)]}/>
+            <Line x={3} y={3} strokeWidth={3} stroke="black" points={[...convertCords(6, 0, scale), ...convertCords(6, 7, scale)]}/>
+            <Line x={3} y={3} strokeWidth={3} stroke="black" points={[...convertCords(5, 7, scale), ...convertCords(6, 7, scale)]}/>
+            <Line x={3} y={3} strokeWidth={3} stroke="black" points={[...convertCords(5, 1.5, scale), ...convertCords(5, 7, scale)]}/>
+            <Line x={3} y={3} strokeWidth={3} stroke="black" points={[...convertCords(3, 3.5, scale), ...convertCords(5, 1.5, scale)]}/>
+            <Line x={3} y={3} strokeWidth={3} stroke="black" points={[...convertCords(1, 1.5, scale), ...convertCords(3, 3.5, scale)]}/>
