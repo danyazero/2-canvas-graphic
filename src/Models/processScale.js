@@ -1,6 +1,5 @@
 export function processScale(userScale){
-    const scale = (window.innerWidth / 2) / userScale
-    return scale;
+    return (window.innerWidth / 2) / userScale
 }
 
 export function convertCords(x, y, scale){
