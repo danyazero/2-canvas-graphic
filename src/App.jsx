@@ -6,8 +6,8 @@ import {useState} from "react";
 import {PolygonSettings} from "./Components/PolygonSettings.jsx";
 
 function App() {
-    const [one, setOne] = useState({scaleX: 1, scaleY: 1, posX: 40, posY: 0, stroke: "#FF007F", fill: "#660032"})
-    const [letter, setLetter] = useState({scaleX: 1, scaleY: 1, posX: 0, posY: 0, stroke: "#FF007F", fill: "#660032"})
+    const [one, setOne] = useState({scaleX: 1, scaleY: 1, stroke: "#FF007F", fill: "#660032"})
+    const [letter, setLetter] = useState({scaleX: 1, scaleY: 1, stroke: "#FF007F", fill: "#660032"})
 
     const mLetter = [
         [1, 1.5], [1, 7],
@@ -39,8 +39,8 @@ function App() {
         <PolygonSettings name={"One"} saveParams={(params) => setOne(params)}/>
         <PolygonSettings name={"M"} saveParams={(params) => setLetter(params)}/>
         <Canvas>
-            <Polygon polygon={scalePolygon(mLetter, parseInt(letter.scaleX), parseInt(letter.scaleY))} x={letter.posX} y={letter.posY} stroke={letter.stroke} fill={letter.fill} userScale={20}/>
-            <Polygon polygon={scalePolygon(oneNumber, parseInt(one.scaleX), parseInt(one.scaleY))} x={one.posX} y={one.posY} stroke={one.stroke} fill={one.fill} userScale={20}/>
+            <Polygon polygon={scalePolygon(mLetter, parseInt(letter.scaleX), parseInt(letter.scaleY))} x={0} y={0} stroke={letter.stroke} fill={letter.fill} userScale={20}/>
+            <Polygon polygon={scalePolygon(oneNumber, parseInt(one.scaleX), parseInt(one.scaleY))} x={40} y={0} stroke={one.stroke} fill={one.fill} userScale={20}/>
         </Canvas>
     </>
   )

@@ -3,9 +3,12 @@ import {BrezenLine} from "./BrezenLine.jsx";
 import {Circle, Group} from "react-konva";
 import {fillPolygon} from "../Models/fillPolygon.js";
 import PropTypes from "prop-types";
+import {useState} from "react";
 
 export const Polygon = ({polygon, x, y, userScale, stroke = "#FF007F", fill = "#FF007F"}) => {
     const scale = processScale(userScale)
+    const [polygonPos, setPolygonPos] = useState({x: x+6, y: y+6})
+
 
     const cordsForFill = fillPolygon(polygon, scale)
     function renderVectors(polygon){
@@ -19,7 +22,7 @@ export const Polygon = ({polygon, x, y, userScale, stroke = "#FF007F", fill = "#
     }
     return (
         <>
-            <Group x={x+6} y={y+6}>
+            <Group x={polygonPos.x} y={polygonPos.y} onDragEnd={(event) => setPolygonPos({x: event.target.x(), y: event.target.y()})} draggable={true}>
                 {cordsForFill.map((element, index) => {
                     return <Circle key={"point_" + index} x={element[0]} y={element[1]} radius={6} fill={fill}/>
                 })}
