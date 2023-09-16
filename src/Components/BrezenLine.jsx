@@ -1,4 +1,5 @@
 import {Circle} from "react-konva";
+import PropTypes from "prop-types";
 
 export const BrezenLine = (props) => {
     let x1 = props.points[0]
@@ -33,4 +34,9 @@ export const BrezenLine = (props) => {
             {points}
         </>
     );
+}
+
+BrezenLine.propTypes = {
+    points: PropTypes.arrayOf(PropTypes.number).isRequired,
+    color: PropTypes.string.isRequired
 }

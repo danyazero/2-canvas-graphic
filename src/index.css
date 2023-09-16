@@ -16,3 +16,7 @@ p{
   width: fit-content;
 }
 
+input{
+  max-width: 50px;
+}
+

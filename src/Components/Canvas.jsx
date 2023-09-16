@@ -4,7 +4,7 @@ export const Canvas = ({children}) => {
 
     return (
         <>
-            <Stage width={window.innerWidth} height={window.innerHeight}>
+            <Stage width={1920} height={1080}>
                 <Layer>
                     {children}
                 </Layer>

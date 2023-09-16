@@ -20,7 +20,7 @@ export function fillPolygon(polygon, scale){
     const {maxX, maxY} = getMaxCords(polygon, scale)
     console.log({maxX, maxY})
     for (let i = 0; i < maxX; i+=12) {
-        for (let j = 0; j < maxY; j+=2) {
+        for (let j = 0; j < maxY; j+=1) {
             if (isPointInPolygon([i, j], polygon, scale)) cordsForFill.push([i,j])
         }
     }
