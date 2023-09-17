@@ -4,8 +4,6 @@ function getMaxCords(polygon, scale){
     let maxX = polygon[0][0]
     let maxY = polygon[0][1]
 
-    console.log({sMaxX: maxX, sMaxY: maxY})
-
     for (let i = 0; i < polygon.length; i++) {
         if (polygon[i][0] > maxX) maxX = polygon[i][0]
         if (polygon[i][1] > maxY) maxY = polygon[i][1]
@@ -18,9 +16,8 @@ function getMaxCords(polygon, scale){
 export function fillPolygon(polygon, scale){
     let cordsForFill = []
     const {maxX, maxY} = getMaxCords(polygon, scale)
-    console.log({maxX, maxY})
     for (let i = 0; i < maxX; i+=12) {
-        for (let j = 0; j < maxY; j+=1) {
+        for (let j = 0; j < maxY; j++) {
             if (isPointInPolygon([i, j], polygon, scale)) cordsForFill.push([i,j])
         }
     }

@@ -9,8 +9,8 @@ export const BrezenLine = (props) => {
     let points = []
     let deltaX = Math.abs(x2 - x1);
     let deltaY = Math.abs(y2 - y1);
-    let signX = x1 < x2 ? 2 : -2;
-    let signY = y1 < y2 ? 2 : -2;
+    let signX = x1 < x2 ? 1 : -1;
+    let signY = y1 < y2 ? 1 : -1;
     //
     let error = deltaX - deltaY;
     //
