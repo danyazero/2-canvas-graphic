@@ -60,9 +60,10 @@ function App() {
         setRect(scalePolygon(movePolygon(rectDefault, triangle.delta.x / scale, triangle.delta.y / scale), triangle.scaleX, triangle.scaleY))
     }, [triangle.scaleX, triangle.scaleY])
 
-    // useEffect(() => {
-    //     setRect(rotatePolygon(rect, triangle.rotate))
-    // }, [triangle.rotate])
+    useEffect(() => {
+        // console.log(rotatePolygon(rect, triangle.rotate))
+        setRect(rotatePolygon(movePolygon(rectDefault, triangle.delta.x / scale, triangle.delta.y / scale), triangle.rotate))
+    }, [triangle.rotate])
     console.log(rect)
   return (
     <>
