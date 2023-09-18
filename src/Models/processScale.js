@@ -1,7 +1,7 @@
 import {VectorByMatrix} from "./Math.js";
 
 export function processScale(userScale){
-    return (1280 / 2) / userScale
+    return (1920 / 2) / userScale
 }
 
 export function convertCords(x, y, scale){

@@ -3,21 +3,28 @@ import {convertCords} from "./processScale.js";
 function getMaxCords(polygon, scale){
     let maxX = polygon[0][0]
     let maxY = polygon[0][1]
+    let minX = polygon[0][0]
+    let minY = polygon[0][1]
 
     for (let i = 0; i < polygon.length; i++) {
         if (polygon[i][0] > maxX) maxX = polygon[i][0]
         if (polygon[i][1] > maxY) maxY = polygon[i][1]
+        if (polygon[i][0] < minX) minX = polygon[i][0]
+        if (polygon[i][1] < minY) minY = polygon[i][1]
     }
-    const converted = convertCords(maxX, maxY, scale)
+    const convertedMax = convertCords(maxX, maxY, scale)
+    const convertedMin = convertCords(minX, minY, scale)
 
-    return {maxX: converted[0], maxY: converted[1]}
+    return {maxX: convertedMax[0], maxY: convertedMax[1], minX: convertedMin[0], minY: convertedMin[1]}
 }
 
 export function fillPolygon(polygon, scale){
+    console.log(polygon)
     let cordsForFill = []
-    const {maxX, maxY} = getMaxCords(polygon, scale)
-    for (let i = 0; i < maxX; i+=12) {
-        for (let j = 0; j < maxY; j++) {
+    const {maxX, maxY, minX, minY} = getMaxCords(polygon, scale)
+    console.log({maxX, maxY, minX, minY, width: maxX - minX, height: maxY - minY})
+    for (let i = minX; i < maxX; i+=12) {
+        for (let j = minY; j < maxY; j++) {
             if (isPointInPolygon([i, j], polygon, scale)) cordsForFill.push([i,j])
         }
     }
