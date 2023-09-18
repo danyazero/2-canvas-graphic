@@ -28,7 +28,9 @@ export const PolygonSettings = ({saveParams, name}) => {
                 <option value={3}>3x</option>
             </select>
             <p>Rotate</p>
-            <input value={rotate} placeholder={"Rotate Polygon"} type={"number"} onChange={(event) => setRotate(event.target.value)}/>
+            <input type={"range"} style={{minWidth: '150px'}} value={rotate} min={0} max={360} onChange={(event) => setRotate(event.target.value)}/>
+            <p>{rotate}*</p>
+            {/*<input value={rotate} placeholder={"Rotate Polygon"} type={"number"} onChange={(event) => setRotate(event.target.value)}/>*/}
             <GithubPicker triangle={"hide"} width={150} colors={['#DB3E00', '#FCCB00', '#008B02','#1273DE', '#EB9694', "#FF007F"]} onChangeComplete={(color) => setStroke(color.hex)}/>
             <GithubPicker triangle={"hide"} width={150} colors={['#DB3E00', '#FCCB00', '#008B02','#1273DE', '#EB9694', '#660032']} onChangeComplete={(color) => setFill(color.hex)}/>
             <button type={"submit"}>Save</button>

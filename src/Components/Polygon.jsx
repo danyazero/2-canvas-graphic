@@ -26,7 +26,7 @@ export const Polygon = ({polygonDefault, x, y, scale, stroke = "#FF007F", fill =
 
     useEffect(() => {
         console.log("rotate")
-        setPolygon(movePolygon(rotatePolygon(polygonDefault, rotate, center.x / scale, center.y/scale), (polygonPos.x) / scale, (polygonPos.y) / scale))
+        setPolygon(movePolygon(rotatePolygon(scalePolygon(polygonDefault, scaleX, scaleY), rotate, center.x / scale, center.y/scale), (polygonPos.x) / scale, (polygonPos.y) / scale))
     }, [rotate])
 
     useEffect(() => {
