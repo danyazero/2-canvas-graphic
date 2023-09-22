@@ -42,6 +42,15 @@ export const Polygon = ({polygonDefault, x, y, scale, stroke = "#FF007F", fill =
         }
         return vectors
     }
+
+    function renderPoits(polygon){
+        let points = []
+        for (let i = 0; i < polygon.length; i+=2) {
+            const cords = convertCords(polygon[i][0], polygon[i][1], scale)
+            points.push(<Circle x={cords[0]} y={cords[1]} /> )
+        }
+        return points
+    }
     return (
         <>
             <Group onDragEnd={(event) => {

@@ -60,11 +60,11 @@ function App() {
     ]
   return (
     <>
-        <PolygonSettings name={"M"} saveParams={(params) => setLetter(prevState => {return {...prevState, ...params}})}/>
-        <PolygonSettings name={"One"} corners={4} saveParams={(params) => setOne(prevState => {return {...prevState, ...params}})}/>
+        <PolygonSettings name={"M"} corners={12} saveParams={(params) => setLetter(prevState => {return {...prevState, ...params}})}/>
+        <PolygonSettings name={"One"} corners={6} saveParams={(params) => setOne(prevState => {return {...prevState, ...params}})}/>
         <Canvas>
             <Polygon corner={one.corner} scaleX={parseInt(one.scaleX)} scaleY={parseInt(one.scaleY)} rotate={parseInt(one.rotate)} x={0} y={0} polygonDefault={oneNumber} scale={scale} stroke={one.stroke} fill={one.fill}/>
-            {/*<Polygon scaleX={parseInt(letter.scaleX)} scaleY={parseInt(letter.scaleY)} rotate={letter.rotate} x={120} y={0} polygonDefault={mLetter} scale={scale} stroke={letter.stroke} fill={letter.fill}/>*/}
+            <Polygon corner={letter.corner} scaleX={parseInt(letter.scaleX)} scaleY={parseInt(letter.scaleY)} rotate={letter.rotate} x={120} y={0} polygonDefault={mLetter} scale={scale} stroke={letter.stroke} fill={letter.fill}/>
             {/*<Polygon polygonDefault={rectDefault} scale={scale} x={0} y={0} scaleX={parseInt(triangle.scaleX)} scaleY={parseInt(triangle.scaleY)} rotate={parseInt(triangle.rotate)} stroke={triangle.stroke} fill={triangle.fill}/>*/}
         </Canvas>
     </>

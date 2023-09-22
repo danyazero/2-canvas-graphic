@@ -21,7 +21,7 @@ function getMaxCords(polygon, scale){
 export function fillPolygon(polygon, scale){
     let cordsForFill = []
     const {maxX, maxY, minX, minY} = getMaxCords(polygon, scale)
-    console.log({maxX, maxY, minX, minY, width: maxX - minX, height: maxY - minY})
+    // console.log({maxX, maxY, minX, minY, width: maxX - minX, height: maxY - minY})
     for (let i = minX; i < maxX; i+=12) {
         for (let j = minY; j < maxY; j++) {
             if (isPointInPolygon([i, j], polygon, scale)) cordsForFill.push([i,j])
