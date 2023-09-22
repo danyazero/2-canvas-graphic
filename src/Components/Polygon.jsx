@@ -7,11 +7,10 @@ import {useEffect, useState} from "react";
 import {movePolygon} from "../Models/MovePolygon.js";
 import {rotatePolygon} from "../Models/RotatePolygon.js";
 
-export const Polygon = ({polygonDefault, x, y, scale, stroke = "#FF007F", fill = "#FF007F", scaleX, scaleY, rotate}) => {
+export const Polygon = ({polygonDefault, x, y, scale, stroke = "#FF007F", fill = "#FF007F", scaleX, scaleY, rotate, corner}) => {
     const [polygonPos, setPolygonPos] = useState({x: x+6, y: y+6})
     const [polygon, setPolygon] = useState(polygonDefault)
     const [delta, setDelta] = useState({x: 0, y: 0})
-    const [center, setCenter] = useState({x: 6, y: 6})
     let cordsForFill = fillPolygon(polygon, scale)
 
     useEffect(() => {
@@ -26,11 +25,10 @@ export const Polygon = ({polygonDefault, x, y, scale, stroke = "#FF007F", fill =
 
     useEffect(() => {
         console.log("rotate")
-        setPolygon(movePolygon(rotatePolygon(scalePolygon(polygonDefault, scaleX, scaleY), rotate, center.x / scale, center.y/scale), (polygonPos.x) / scale, (polygonPos.y) / scale))
+        setPolygon(rotatePolygon(movePolygon(scalePolygon(polygonDefault, scaleX, scaleY), (polygonPos.x) / scale, (polygonPos.y) / scale), rotate, corner))
     }, [rotate])
 
     useEffect(() => {
-        console.log(polygon)
         cordsForFill = fillPolygon(polygon, scale)
     }, [polygon])
 
@@ -46,7 +44,6 @@ export const Polygon = ({polygonDefault, x, y, scale, stroke = "#FF007F", fill =
     }
     return (
         <>
-            <Circle fill={fill} stroke={stroke} strokeWidth={3} radius={5} x={center.x} y={center.y} onDragEnd={(event) => setCenter({x: event.target.x(), y: event.target.y()})} draggable={true}/>
             <Group onDragEnd={(event) => {
                 setDelta({x: (event.target.x() - polygonPos.x), y: (event.target.y() - polygonPos.y)})
                 setPolygonPos({x: event.target.x(), y: event.target.y()})
@@ -70,4 +67,5 @@ Polygon.propTypes = {
     scaleX: PropTypes.number.isRequired,
     scaleY: PropTypes.number.isRequired,
     rotate: PropTypes.number.isRequired,
+    corner: PropTypes.number.isRequired
 }

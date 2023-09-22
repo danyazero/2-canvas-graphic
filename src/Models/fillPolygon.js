@@ -19,7 +19,6 @@ function getMaxCords(polygon, scale){
 }
 
 export function fillPolygon(polygon, scale){
-    console.log(polygon)
     let cordsForFill = []
     const {maxX, maxY, minX, minY} = getMaxCords(polygon, scale)
     console.log({maxX, maxY, minX, minY, width: maxX - minX, height: maxY - minY})

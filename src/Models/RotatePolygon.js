@@ -1,21 +1,16 @@
 import {VectorByMatrix} from "./Math.js";
 
-export function rotatePolygon(polygon, angle, x, y){
+export function rotatePolygon(polygon, angle, corner){
     let newPolygon = []
     const radians = angle * (Math.PI / 180)
-    console.log(radians)
-    console.log({x0: x, y0: y})
+    console.log(polygon)
     const cos = Math.cos(radians)
     const sin = Math.sin(radians)
-    const matrix = [
-        [cos, -sin],
-        [sin, cos]
-    ]
 
     for (let i = 0; i < polygon.length; i++) {
-        const x1 = polygon[i][0] - polygon[0][0]
-        const y1 = polygon[i][1] - polygon[0][1]
-        newPolygon.push([(x1*cos - y1 * sin + x), (x1 * sin + y1 * cos + y)])
+        const x1 = parseInt(polygon[i][0] - polygon[corner*2][0])
+        const y1 = parseInt(polygon[i][1] - polygon[corner*2][1])
+        newPolygon.push([parseInt((x1*cos - y1 * sin + polygon[corner*2][0])), parseInt((x1 * sin + y1 * cos + polygon[corner*2][1]))])
     }
 
     return newPolygon
