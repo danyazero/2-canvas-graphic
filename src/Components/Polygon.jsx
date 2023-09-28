@@ -8,7 +8,7 @@ import {movePolygon} from "../Models/MovePolygon.js";
 import {rotatePolygon} from "../Models/RotatePolygon.js";
 
 export const Polygon = ({polygonDefault, x, y, scale, stroke = "#FF007F", fill = "#FF007F", scaleX, scaleY, rotate, corner}) => {
-    const [polygonPos, setPolygonPos] = useState({x: x+6, y: y+6})
+    const [polygonPos, setPolygonPos] = useState({x: x+6, y: y+12})
     const [polygon, setPolygon] = useState(polygonDefault)
     const [delta, setDelta] = useState({x: 0, y: 0})
     let cordsForFill = fillPolygon(polygon, scale)
